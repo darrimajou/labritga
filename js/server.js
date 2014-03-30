@@ -8,8 +8,6 @@ var app = express();
 app.get('/News', function(req, res) {
     news.getAll().done(function(actus) {
         res.json(actus);
-    }).fail(function() {
-        res.send(500, 'Internal server error');
     });
 });
 
