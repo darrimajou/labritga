@@ -50,6 +50,18 @@ app.get('/Passer/:equipe', function(req, res) {
     res.send(501, 'Passer : Not implemented');
 });
 
+// Get classement of the week best player
+app.get('/Players/:equipe', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send(501, 'Get best player : Not implemented');
+});
+
+// Vote for the week best player
+app.post('/Player', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send(501, 'Vote for week best player : Not implemented');
+});
+
 // 404 not found
 app.use(function(req, res, next){
     res.setHeader('Content-Type', 'text/plain');
