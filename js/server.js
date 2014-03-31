@@ -1,5 +1,6 @@
 var express = require('express');
 var news = require('./news');
+var championnat = require('./championnat');
 
 // Express framework
 var app = express();
@@ -20,10 +21,11 @@ app.post('/News', function(req, res) {
     });
 });
 
-// Get classement
-app.get('/Classement/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501, 'Classement : Not implemented');
+// Get ranking of a championnat 
+app.get('/Classement/:championnat', function(req, res) {
+    championnat.getRanking(req.params.championnat).done(function(ranking) {
+        res.json(ranking);
+    });
 });
 
 // Get last results
