@@ -70,9 +70,10 @@ app.get('/Passer/:championnat', function(req, res) {
 });
 
 // Get classement of the week best player
-app.get('/Players/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501, 'Get best player : Not implemented');
+app.get('/Player/:idWeekEnd', function(req, res) {
+    joueur.getBestPlayerOfWeek(req.params.idWeekEnd).done(function(players) {
+        res.json(players);
+    });
 });
 
 // Vote for the week best player

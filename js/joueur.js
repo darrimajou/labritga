@@ -48,6 +48,22 @@ var Joueur = Base.extend({
             def.resolve(passers);
         });
         return def.promise();
+    },
+
+    /**
+     * Get table of Best Player Of Week 
+     */
+    getBestPlayerOfWeek: function (idWeekEnd) {
+        console.log('getBestPlayerOfWeek()');
+        var def = deferred();
+        mysql.get('SELECT j.Nom, j.Prenom, Round(b.nbVote/(SELECT SUM(nbVote) From BestJoueur Where IdWeekEnd = 1)*100, 1) As Percent ' +
+                    'FROM BestJoueur b ' +
+                    'INNER JOIN Joueur j ON b.IdJoueur = j.id ' +
+                    'WHERE b.IdWeekEnd = ' + idWeekEnd)
+        .done(function(players) {
+            def.resolve(players);
+        });
+        return def.promise();
     }
 
 });
