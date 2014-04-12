@@ -4,8 +4,16 @@
 		"selected_items":
 		[
 			[
+				"But",
+				"ButPour"
+			],
+			[
+				"b",
+				"body"
+			],
+			[
 				"re",
-				"res"
+				"require"
 			],
 			[
 				"p",
@@ -71,7 +79,15 @@
 			"file": "js/server.js",
 			"settings":
 			{
-				"buffer_size": 1866,
+				"buffer_size": 1941,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/championnat.js",
+			"settings":
+			{
+				"buffer_size": 1362,
 				"line_ending": "Unix"
 			}
 		}
@@ -127,6 +143,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"championnat"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -144,7 +161,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -159,8 +176,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								967,
+								967
 							]
 						],
 						"settings":
@@ -180,15 +197,15 @@
 					"file": "js/server.js",
 					"settings":
 					{
-						"buffer_size": 1866,
+						"buffer_size": 1941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1631,
-								1631
+								718,
+								718
 							]
 						],
 						"settings":
@@ -198,7 +215,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 357.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/championnat.js",
+					"settings":
+					{
+						"buffer_size": 1362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1157,
+								1157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

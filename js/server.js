@@ -29,9 +29,10 @@ app.get('/Classement/:championnat', function(req, res) {
 });
 
 // Get last results
-app.get('/Result/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501, 'Result : Not implemented');
+app.get('/Result/:championnat', function(req, res) {
+    championnat.getLastResults(req.params.championnat).done(function(results) {
+        res.json(results);
+    });
 });
 
 // Get calendar
