@@ -1,6 +1,7 @@
 var express = require('express');
 var news = require('./news');
 var championnat = require('./championnat');
+var joueur = require('./joueur');
 
 // Express framework
 var app = express();
@@ -55,15 +56,17 @@ app.get('/Result/:championnat/DateMin/:dateMin/DateMax/:dateMax', function(req, 
 });
 
 // Get scorer
-app.get('/Scorer/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501, 'Scorer : Not implemented');
+app.get('/Scorer/:championnat', function(req, res) {
+    joueur.getScorers(req.params.championnat).done(function(scorers) {
+        res.json(scorers);
+    });
 });
 
 // Get passer
-app.get('/Passer/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501, 'Passer : Not implemented');
+app.get('/Passer/:championnat', function(req, res) {
+    joueur.getPassers(req.params.championnat).done(function(passers) {
+        res.json(passers);
+    });
 });
 
 // Get classement of the week best player
