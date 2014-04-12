@@ -14,7 +14,8 @@ app.get('/News', function(req, res) {
 
 // Post a news
 app.post('/News', function(req, res) {
-    news.create(req.body.news).done(function(message) {
+    news.create(req.body.news)
+    .done(function(message) {
         res.json(message);
     }).fail(function(err) {
         res.send(500, 'Error:' + err);
@@ -23,22 +24,34 @@ app.post('/News', function(req, res) {
 
 // Get ranking of a championnat 
 app.get('/Classement/:championnat', function(req, res) {
-    championnat.getRanking(req.params.championnat).done(function(ranking) {
+    championnat.getRanking(req.params.championnat)
+    .done(function(ranking) {
         res.json(ranking);
     });
 });
 
 // Get last results
 app.get('/Result/:championnat', function(req, res) {
-    championnat.getLastResults(req.params.championnat).done(function(results) {
+    championnat.getLastResults(req.params.championnat)
+    .done(function(results) {
         res.json(results);
     });
 });
 
-// Get calendar
-app.get('/Calendar/:equipe', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(501,'Calendar : Not implemented');
+// Get results by day
+app.get('/Result/:championnat/Day/:day', function(req, res) {
+    championnat.getResultsByDay(req.params.championnat, req.params.day)
+    .done(function(results) {
+        res.json(results);
+    });
+});
+
+// Get results by date
+app.get('/Result/:championnat/DateMin/:dateMin/DateMax/:dateMax', function(req, res) {
+    championnat.getResultsByDate(req.params.championnat, req.params.dateMin, req.params.dateMax)
+    .done(function(results) {
+        res.json(results);
+    });
 });
 
 // Get scorer
